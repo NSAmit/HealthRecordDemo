@@ -20,6 +20,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
+	<string>Demo App would like to access your Health Records for meaningful demo.</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Meaningful message for your user to justify why workout records will be utilized by your app.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Meaningful message for your user benefiting the workout record saving into the health app.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
