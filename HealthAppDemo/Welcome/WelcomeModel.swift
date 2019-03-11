@@ -9,6 +9,13 @@
 import Foundation
 
 struct SupportedFeatures {
-    var id:Int?
+    let id:SupportedFeaturesId
     var title:String?
+}
+
+enum SupportedFeaturesId {
+    case healthRecords
+    case healthKit
+    case researchKit
+    case careKit
 }

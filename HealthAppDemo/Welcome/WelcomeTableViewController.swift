@@ -37,7 +37,7 @@ class WelcomeTableViewController: UITableViewController {
         case "showFeatureLanding":
             if let destinationVC = segue.destination as? FeatureLandingViewController {
                 if let indexPath = sender as? IndexPath {
-                destinationVC.viewModel = FeatureLandingViewModel(inCurrentFeature: viewModel.supportedFeatures[indexPath.row])
+                    destinationVC.currentFeatures = viewModel.supportedFeatures[indexPath.row]
                 }
             }
         default:

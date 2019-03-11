@@ -11,7 +11,7 @@ import Foundation
 class WelcomeViewModel {
     let supportedFeatures:[SupportedFeatures]
     init() {
-        supportedFeatures = [SupportedFeatures(id:1, title:"Health Records")]
+        supportedFeatures = [SupportedFeatures(id:SupportedFeaturesId.healthRecords, title:"Health Records")]
     }
     
     func convertJsonStringToDictionary(inData: Data?) -> [String: Any]? {

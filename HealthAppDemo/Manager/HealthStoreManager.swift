@@ -18,6 +18,8 @@ extension HealthStoreManagerInjectable {
 protocol HealthStoreManagerProtocol {
     func requestForAllClinicalRecordsAuthorization(completion:((Error?) -> Void)?)
     func getRecordForType(type: HKClinicalTypeIdentifier, recordReadCompletionHandler:@escaping ([HKClinicalRecord]?) -> Void)
+    func isAuthorizedForClinicalRecords(forType:HKClinicalTypeIdentifier) -> (HKAuthorizationRequestStatus?, HKAuthorizationStatus?)
+    func getRequestStatusForAllClinicalRecords(completion: @escaping (HKAuthorizationRequestStatus, Error?) -> Void)
 }
 
 class HealthStoreManager:HealthStoreManagerProtocol {
@@ -40,7 +42,7 @@ class HealthStoreManager:HealthStoreManagerProtocol {
             
             guard success else {
                 // Handle errors here.
-                completion?(HealthStoreError(inId: .NotHavingAccess, inTitle: "Error!", inDescription: "Can not access Clinical Records"))
+                completion?(HealthStoreManagerError(indescription: "Can not access Clinical Records"))
                 return
             }
             
@@ -68,20 +70,37 @@ class HealthStoreManager:HealthStoreManagerProtocol {
         }
         healthStore.execute(healthRecordQuery)
     }
-}
-
-class HealthStoreError:Error {
-    var id:HealthStoreErrorEnum?
-    var title:String?
-    var description: String?
     
-    init(inId:HealthStoreErrorEnum, inTitle: String, inDescription: String) {
-        id = inId
-        title = inTitle
-        description = inDescription
+    func isAuthorizedForClinicalRecords(forType:HKClinicalTypeIdentifier) -> (HKAuthorizationRequestStatus?, HKAuthorizationStatus?) {
+        guard let inType = HKObjectType.clinicalType(forIdentifier: forType) else {
+                return (HKAuthorizationRequestStatus.unknown, HKAuthorizationStatus.notDetermined)
+        }
+        return (nil, healthStore.authorizationStatus(for: inType))
+    }
+    
+    func getRequestStatusForAllClinicalRecords(completion: @escaping (HKAuthorizationRequestStatus, Error?) -> Void) {
+        guard let allergiesType = HKObjectType.clinicalType(forIdentifier: .allergyRecord),
+            let medicationsType = HKObjectType.clinicalType(forIdentifier: .medicationRecord),
+            let conditionType = HKObjectType.clinicalType(forIdentifier: .conditionRecord),
+            let immunizationType = HKObjectType.clinicalType(forIdentifier: .immunizationRecord),
+            let labResultType = HKObjectType.clinicalType(forIdentifier: .labResultRecord),
+            let procedureType = HKObjectType.clinicalType(forIdentifier: .procedureRecord),
+            let vitalSignType = HKObjectType.clinicalType(forIdentifier: .vitalSignRecord) else {
+                completion(.unknown, HealthStoreManagerError(indescription: "Currently not having access to Clinical Records."))
+                return
+        }
+        
+        // Clinical types are read-only.
+        healthStore.getRequestStatusForAuthorization(toShare: [], read: [allergiesType, medicationsType, conditionType, immunizationType, labResultType, procedureType, vitalSignType]) { (inStatus, inError) in
+            completion(inStatus, inError)
+        }
     }
 }
 
-enum HealthStoreErrorEnum {
-    case NotHavingAccess
+class HealthStoreManagerError:Error {
+    let description:String
+    
+    init(indescription: String) {
+        description = indescription
+    }
 }
