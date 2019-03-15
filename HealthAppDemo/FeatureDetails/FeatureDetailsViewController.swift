@@ -14,6 +14,7 @@ class FeatureDetailsViewController: UIViewController {
     let viewModel = FeatureDetailsViewModel()
     @IBOutlet weak var tableView: UITableView!
     var recordDetails:[HKClinicalRecord]?
+    var healthRecordDetailObjects:[HealthRecordObject?]?
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView?.tableFooterView = UIView(frame: CGRect.zero)
@@ -21,25 +22,25 @@ class FeatureDetailsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.getFormatedDictionaryFromHealthRecord(inHKHealthData: recordDetails)
+        healthRecordDetailObjects = viewModel.getFormatedDictionaryFromHealthRecord(inHKHealthData: recordDetails)
     }
 }
 
 extension FeatureDetailsViewController:UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return recordDetails?.count ?? 0
+        return healthRecordDetailObjects?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if let displayTitle = recordDetails?[section].displayName {
+        if let displayTitle = healthRecordDetailObjects?[section]?.clinicalRecord.displayName {
             return getRequiredHeight(inDisplayText: displayTitle)
         }
         return 0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if let displayTitle = recordDetails?[section].displayName {
+        if let displayTitle = healthRecordDetailObjects?[section]?.clinicalRecord.displayName {
             let label = UILabel(frame: CGRect(x: 10, y: 10, width: tableView.frame.width - 20, height: 300))
             label.numberOfLines = 0
             label.textColor = UIColor.darkText

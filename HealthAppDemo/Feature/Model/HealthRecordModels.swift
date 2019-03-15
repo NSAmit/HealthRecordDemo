@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import HealthKit
 
 // MARK: Medication
 
@@ -141,4 +142,20 @@ struct VitalSign:Codable {
     var issued: String?
     var valueQuantity:ValueQuantity?
     var component:[[String: String?]?]?
+}
+
+// MARK: Health Record
+
+class HealthRecordObject {
+    let clinicalRecord:HKClinicalRecord
+    let formattedData:Any
+    
+    init(inFormattedData:Any, inClinicalRecord:HKClinicalRecord) {
+        self.formattedData = inFormattedData
+        self.clinicalRecord = inClinicalRecord
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
