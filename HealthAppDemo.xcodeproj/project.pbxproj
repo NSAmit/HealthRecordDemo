@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3500EDA6223348410041B509 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3500EDA5223348410041B509 /* HealthKit.framework */; };
 		3507C2992234C29F001E4C68 /* HealthStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507C2982234C29F001E4C68 /* HealthStoreManager.swift */; };
 		3507C29C2234C38D001E4C68 /* HealthAppDemoDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507C29B2234C38D001E4C68 /* HealthAppDemoDependencies.swift */; };
 		3507C29E2234D308001E4C68 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507C29D2234D308001E4C68 /* WelcomeViewModel.swift */; };
@@ -16,6 +15,7 @@
 		3507C2A52234DAA2001E4C68 /* FeatureLandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507C2A42234DAA2001E4C68 /* FeatureLandingViewModel.swift */; };
 		3507C2A72235B7D2001E4C68 /* HealthRecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507C2A62235B7D2001E4C68 /* HealthRecordModel.swift */; };
 		3507C2A9223614B0001E4C68 /* HealthRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507C2A8223614B0001E4C68 /* HealthRecordTableViewCell.swift */; };
+		3507C2AB223649A5001E4C68 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3507C2AA223649A5001E4C68 /* HealthKit.framework */; };
 		3560AA0321B4C7D000D37F2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3560AA0221B4C7D000D37F2C /* AppDelegate.swift */; };
 		3560AA0821B4C7D000D37F2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3560AA0621B4C7D000D37F2C /* Main.storyboard */; };
 		3560AA0A21B4C7D100D37F2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3560AA0921B4C7D100D37F2C /* Assets.xcassets */; };
@@ -23,6 +23,9 @@
 		3560AA1821B4C7D100D37F2C /* HealthAppDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3560AA1721B4C7D100D37F2C /* HealthAppDemoTests.swift */; };
 		3560AA2321B4C7D100D37F2C /* HealthAppDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3560AA2221B4C7D100D37F2C /* HealthAppDemoUITests.swift */; };
 		3560AA3521B4CE0B00D37F2C /* WelcomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3560AA3421B4CE0B00D37F2C /* WelcomeTableViewController.swift */; };
+		3599A9342238C0D4007DC99C /* FeatureDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3599A9332238C0D4007DC99C /* FeatureDetailsViewController.swift */; };
+		3599A9362238E263007DC99C /* FeatureDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3599A9352238E263007DC99C /* FeatureDetailsViewModel.swift */; };
+		3599A939223B45F3007DC99C /* HealthRecordModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3599A938223B45F3007DC99C /* HealthRecordModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +46,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3500EDA5223348410041B509 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		3507C2982234C29F001E4C68 /* HealthStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStoreManager.swift; sourceTree = "<group>"; };
 		3507C29B2234C38D001E4C68 /* HealthAppDemoDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthAppDemoDependencies.swift; sourceTree = "<group>"; };
 		3507C29D2234D308001E4C68 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 		3507C2A42234DAA2001E4C68 /* FeatureLandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureLandingViewModel.swift; sourceTree = "<group>"; };
 		3507C2A62235B7D2001E4C68 /* HealthRecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthRecordModel.swift; sourceTree = "<group>"; };
 		3507C2A8223614B0001E4C68 /* HealthRecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthRecordTableViewCell.swift; sourceTree = "<group>"; };
+		3507C2AA223649A5001E4C68 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		3560A9FF21B4C7D000D37F2C /* HealthAppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthAppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3560AA0221B4C7D000D37F2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3560AA0721B4C7D000D37F2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -66,6 +69,9 @@
 		3560AA2421B4C7D100D37F2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3560AA3021B4C98A00D37F2C /* HealthAppDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthAppDemo.entitlements; sourceTree = "<group>"; };
 		3560AA3421B4CE0B00D37F2C /* WelcomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeTableViewController.swift; sourceTree = "<group>"; };
+		3599A9332238C0D4007DC99C /* FeatureDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureDetailsViewController.swift; sourceTree = "<group>"; };
+		3599A9352238E263007DC99C /* FeatureDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureDetailsViewModel.swift; sourceTree = "<group>"; };
+		3599A938223B45F3007DC99C /* HealthRecordModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthRecordModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3500EDA6223348410041B509 /* HealthKit.framework in Frameworks */,
+				3507C2AB223649A5001E4C68 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +144,7 @@
 				3507C2A42234DAA2001E4C68 /* FeatureLandingViewModel.swift */,
 				3507C2A62235B7D2001E4C68 /* HealthRecordModel.swift */,
 				3507C2A8223614B0001E4C68 /* HealthRecordTableViewCell.swift */,
+				3599A93A223B45FC007DC99C /* Model */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -173,6 +180,7 @@
 				3560AA0B21B4C7D100D37F2C /* LaunchScreen.storyboard */,
 				3507C29A2234C2A5001E4C68 /* Manager */,
 				3507C2A32234D9ED001E4C68 /* Feature */,
+				3599A9372238E26C007DC99C /* FeatureDetails */,
 			);
 			path = HealthAppDemo;
 			sourceTree = "<group>";
@@ -198,9 +206,26 @@
 		3560AA3121B4C98A00D37F2C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3500EDA5223348410041B509 /* HealthKit.framework */,
+				3507C2AA223649A5001E4C68 /* HealthKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3599A9372238E26C007DC99C /* FeatureDetails */ = {
+			isa = PBXGroup;
+			children = (
+				3599A9332238C0D4007DC99C /* FeatureDetailsViewController.swift */,
+				3599A9352238E263007DC99C /* FeatureDetailsViewModel.swift */,
+			);
+			path = FeatureDetails;
+			sourceTree = "<group>";
+		};
+		3599A93A223B45FC007DC99C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3599A938223B45F3007DC99C /* HealthRecordModels.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,12 +366,15 @@
 			files = (
 				3507C29E2234D308001E4C68 /* WelcomeViewModel.swift in Sources */,
 				3507C2992234C29F001E4C68 /* HealthStoreManager.swift in Sources */,
+				3599A9362238E263007DC99C /* FeatureDetailsViewModel.swift in Sources */,
 				3560AA0321B4C7D000D37F2C /* AppDelegate.swift in Sources */,
 				3507C2A72235B7D2001E4C68 /* HealthRecordModel.swift in Sources */,
 				3507C2A02234D31A001E4C68 /* WelcomeModel.swift in Sources */,
+				3599A939223B45F3007DC99C /* HealthRecordModels.swift in Sources */,
 				3507C2A22234D9E7001E4C68 /* FeatureLandingViewController.swift in Sources */,
 				3507C2A9223614B0001E4C68 /* HealthRecordTableViewCell.swift in Sources */,
 				3507C2A52234DAA2001E4C68 /* FeatureLandingViewModel.swift in Sources */,
+				3599A9342238C0D4007DC99C /* FeatureDetailsViewController.swift in Sources */,
 				3507C29C2234C38D001E4C68 /* HealthAppDemoDependencies.swift in Sources */,
 				3560AA3521B4CE0B00D37F2C /* WelcomeTableViewController.swift in Sources */,
 			);
@@ -524,8 +552,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HealthAppDemo/HealthAppDemo.entitlements;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 684A5863CN;
 				INFOPLIST_FILE = HealthAppDemo/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -544,8 +573,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HealthAppDemo/HealthAppDemo.entitlements;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 684A5863CN;
 				INFOPLIST_FILE = HealthAppDemo/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

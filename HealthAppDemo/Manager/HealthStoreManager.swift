@@ -20,6 +20,7 @@ protocol HealthStoreManagerProtocol {
     func getRecordForType(type: HKClinicalTypeIdentifier, recordReadCompletionHandler:@escaping ([HKClinicalRecord]?) -> Void)
     func isAuthorizedForClinicalRecords(forType:HKClinicalTypeIdentifier) -> (HKAuthorizationRequestStatus?, HKAuthorizationStatus?)
     func getRequestStatusForAllClinicalRecords(completion: @escaping (HKAuthorizationRequestStatus, Error?) -> Void)
+    func getRequestStatusForIndividualClinicalRecords(ofType inTypeIdentifier: HKClinicalTypeIdentifier, completion: @escaping (HKAuthorizationRequestStatus, Error?) -> Void)
 }
 
 class HealthStoreManager:HealthStoreManagerProtocol {
@@ -92,6 +93,21 @@ class HealthStoreManager:HealthStoreManagerProtocol {
         
         // Clinical types are read-only.
         healthStore.getRequestStatusForAuthorization(toShare: [], read: [allergiesType, medicationsType, conditionType, immunizationType, labResultType, procedureType, vitalSignType]) { (inStatus, inError) in
+            completion(inStatus, inError)
+        }
+    }
+    
+    func getRequestStatusForIndividualClinicalRecords(ofType inTypeIdentifier: HKClinicalTypeIdentifier, completion: @escaping (HKAuthorizationRequestStatus, Error?) -> Void) {
+        guard let recordType = HKObjectType.clinicalType(forIdentifier: inTypeIdentifier) else {
+                completion(.unknown, HealthStoreManagerError(indescription: "Currently not having access to Clinical Records."))
+                return
+        }
+        
+        // Clinical types are read-only.
+        healthStore.getRequestStatusForAuthorization(toShare: [], read: [recordType]) { (inStatus, inError) in
+            DispatchQueue.main.async {
+                print("HKAuthorizationRequestStatus for \(inTypeIdentifier.rawValue) is Status = \(inStatus.rawValue) with Error = \(String(describing: inError?.localizedDescription))")
+            }
             completion(inStatus, inError)
         }
     }
