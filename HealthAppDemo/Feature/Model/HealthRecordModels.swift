@@ -12,136 +12,136 @@ import HealthKit
 // MARK: Medication
 
 struct Patient:Codable {
-    var display: String?
-    var reference: String?
+    let display: String
+    let reference: String
 }
 
 struct Prescriber:Codable {
-    var display: String?
-    var reference: String?
+    let display: String
+    let reference: String
 }
 
 struct MedicationCodeableConcept:Codable {
-    var text:String?
-    var coding:[[String:String?]?]?
+    let text:String
+    let coding:[[String:String]]
 }
 
 struct DosageInstruction: Codable {
-    var text:String?
-    var timing:[String:[String:String?]?]?
+    let text:String?
+    let timing:[String:[String:String?]?]?
 }
 
 struct Medication:Codable {
-    var dateWritten:String?
-    var status: String?
-    var note: String?
-    var id: String?
-    var medicationCodeableConcept: MedicationCodeableConcept?
-    var patient:Patient?
-    var prescriber:Prescriber?
-    var resourceType:String?
-    var dosageInstruction:[DosageInstruction?]?
+    let dateWritten:String
+    let status: String
+    let note: String
+    let id: String
+    let medicationCodeableConcept: MedicationCodeableConcept
+    let patient:Patient
+    let prescriber:Prescriber
+    let resourceType:String
+    let dosageInstruction:[DosageInstruction]
 }
 
 // MARK: Allergy
 
 struct Reaction:Codable {
-    var onset:String?
-    var manifestation:[[String: String?]?]?
-    var severity:String?
+    let onset:String?
+    let manifestation:[[String: String]]
+    let severity:String
 }
 
 struct Allergy: Codable {
-    var id: String?
-    var onset: String?
-    var patient: Patient?
-    var reaction: [Reaction?]?
-    var recordedDate: String?
-    var resourceType:String?
-    var substance: MedicationCodeableConcept?
+    let id: String
+    let onset: String?
+    let patient: Patient
+    let reaction: [Reaction]
+    let recordedDate: String
+    let resourceType:String
+    let substance: MedicationCodeableConcept
 }
 
 // MARK: Condition
 
 struct Asserter:Codable {
-    var display: String?
-    var reference: String?
+    let display: String
+    let reference: String
 }
 
 struct Condition:Codable {
-    var id: String?
-    var resourceType:String?
-    var asserter:Asserter?
-    var category:[String: [[String: String?]]?]?
-    var clinicalStatus: String?
-    var code: MedicationCodeableConcept?
-    var dateRecorded: String?
-    var verificationStatus: String?
-    var notes: String?
-    var onsetDateTime: String?
+    let id: String
+    let resourceType:String
+    let asserter:Asserter
+    let category:[String: [[String: String]]]
+    let clinicalStatus: String
+    let code: MedicationCodeableConcept
+    let dateRecorded: String
+    let verificationStatus: String
+    let notes: String
+    let onsetDateTime: String
 }
 
 // MARK: Immunization
 
 struct Immunization:Codable {
-    var id: String?
-    var resourceType:String?
-    var vaccineCode:MedicationCodeableConcept?
-    var encounter:[String: String?]?
-    var requester:[String: String?]?
-    var date: String?
+    let id: String
+    let resourceType:String
+    let vaccineCode:MedicationCodeableConcept
+    let encounter:[String: String]
+    let requester:[String: String]
+    let date: String
 }
 
 // MARK: LabResult
 
 struct ReferenceRange:Codable {
-    var low:ValueQuantity?
-    var high:ValueQuantity?
-    var text:String?
+    let low:ValueQuantity
+    let high:ValueQuantity
+    let text:String
 }
 
 struct ValueQuantity:Codable {
-    var code:String?
-    var system:String?
-    var value:Double?
-    var unit:String?
+    let code:String
+    let system:String
+    let value:Double
+    let unit:String
 }
 
 struct LabResult:Codable {
-    var id: String?
-    var resourceType:String?
-    var category:MedicationCodeableConcept?
-    var issued:String?
-    var status:String?
-    var code:MedicationCodeableConcept?
-    var referenceRange:[ReferenceRange?]?
-    var valueQuantity:ValueQuantity?
+    let id: String
+    let resourceType:String
+    let category:MedicationCodeableConcept
+    let issued:String
+    let status:String
+    let code:MedicationCodeableConcept
+    let referenceRange:[ReferenceRange]
+    let valueQuantity:ValueQuantity
 }
 
 // MARK: Procedure
 
 struct Procedure:Codable {
-    var id: String?
-    var resourceType:String?
-    var code:MedicationCodeableConcept?
-    var status:String?
-    var encounter:[String: String?]?
-    var performedDateTime:String?
-//    var performer:[[String: Any?]?]?
+    let id: String
+    let resourceType:String
+    let code:MedicationCodeableConcept
+    let status:String
+    let encounter:[String: String]
+    let performedDateTime:String
+//    let performer:[[String: Any]]
 }
 
 // MARK: VitalSign
 
 struct VitalSign:Codable {
-    var id: String?
-    var resourceType:String?
-    var category:MedicationCodeableConcept?
-    var code:MedicationCodeableConcept?
-    var status:String?
-    var encounter:[String: String?]?
-    var issued: String?
-    var valueQuantity:ValueQuantity?
-    var component:[[String: String?]?]?
+    let id: String
+    let resourceType:String
+    let category:MedicationCodeableConcept
+    let code:MedicationCodeableConcept
+    let status:String
+    let encounter:[String: String]
+    let issued: String
+    let valueQuantity:ValueQuantity
+    let component:[[String: String?]?]?
 }
 
 // MARK: Health Record

@@ -214,16 +214,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="355" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Q93-Ec-M9V">
-                                                    <rect key="frame" x="35" y="21" width="285" height="58"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Q93-Ec-M9V">
+                                                    <rect key="frame" x="15" y="21" width="305" height="58"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ze5-H8-LOx">
-                                                            <rect key="frame" x="0.0" y="0.0" width="142.5" height="58"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ze5-H8-LOx">
+                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="58"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgm-pg-WVd">
-                                                            <rect key="frame" x="150.5" y="0.0" width="134.5" height="58"/>
+                                                            <rect key="frame" x="155" y="0.0" width="150" height="58"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -237,7 +237,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Q93-Ec-M9V" secondAttribute="trailing" constant="20" id="SD4-9I-IfK"/>
-                                                <constraint firstItem="Q93-Ec-M9V" firstAttribute="leading" secondItem="viu-zY-Yw8" secondAttribute="leadingMargin" constant="20" id="fap-Cl-jVF"/>
+                                                <constraint firstItem="Q93-Ec-M9V" firstAttribute="leading" secondItem="viu-zY-Yw8" secondAttribute="leadingMargin" id="fap-Cl-jVF"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Q93-Ec-M9V" secondAttribute="bottom" constant="10" id="jB3-29-e5R"/>
                                                 <constraint firstItem="Q93-Ec-M9V" firstAttribute="top" secondItem="viu-zY-Yw8" secondAttribute="topMargin" constant="10" id="zoz-8E-1Yt"/>
                                             </constraints>
