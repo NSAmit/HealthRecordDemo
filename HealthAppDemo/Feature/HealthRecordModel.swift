@@ -13,7 +13,6 @@ struct HealthRecordModel {
     let type:HKClinicalTypeIdentifier
     let authorizationStatus:HKAuthorizationStatus
     let displayString:String
-    var data:Data?
     
     init(inType: HKClinicalTypeIdentifier, inStatus: HKAuthorizationStatus, inDisplayString: String) {
         self.type = inType

@@ -58,5 +58,4 @@ class FeatureDetailsViewModel {
         }
         return returnDict
     }
-    
 }

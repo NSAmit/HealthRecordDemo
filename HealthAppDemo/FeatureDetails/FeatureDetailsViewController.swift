@@ -41,13 +41,17 @@ extension FeatureDetailsViewController:UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if let displayTitle = healthRecordDetailObjects?[section]?.clinicalRecord.displayName {
-            let label = UILabel(frame: CGRect(x: 10, y: 10, width: tableView.frame.width - 20, height: 300))
+            let parentView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: tableView.sectionHeaderHeight))
+            parentView.backgroundColor = UIColor.clear
+            parentView.layer.cornerRadius = 10.0
+            let label = UILabel(frame: CGRect(x: 10, y: 10, width: tableView.frame.width - 20, height: parentView.frame.height))
             label.numberOfLines = 0
-            label.textColor = UIColor.darkText
-            label.font = UIFont.systemFont(ofSize: 24, weight: .medium)
+            label.textColor = UIColor(red: 0.0, green: 123/255, blue: 167/255, alpha: 1)
+            label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
             label.text = displayTitle
             label.sizeToFit()
-            return label
+            parentView.addSubview(label)
+            return parentView
         }
         return UIView(frame: CGRect.zero)
     }
@@ -56,18 +60,24 @@ extension FeatureDetailsViewController:UITableViewDelegate, UITableViewDataSourc
         let label = UILabel(frame: CGRect(x: 10, y: 10, width: tableView.frame.width - 20, height: 300))
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.textColor = UIColor.darkText
-        label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.text = inDisplayText
         label.sizeToFit()
         return label.frame.height + 20
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0 //recordDetails?[section].fhirResource?.data
+        return healthRecordDetailObjects?[section]?.numberOfLabels ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "recordDetailsCell") as? RecordDetailsTableViewCell {
+            if let currentData = healthRecordDetailObjects?[indexPath.section]?.getLabelValueAtIndex(inIndex: indexPath.row) {
+                cell.label?.text = currentData.label?.capitalized
+                cell.valueLabel?.text = String(reflecting: currentData.value)
+            }
+            return cell
+        }
         return UITableViewCell()
     }
 }

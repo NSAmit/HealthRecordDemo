@@ -26,6 +26,7 @@
 		3599A9342238C0D4007DC99C /* FeatureDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3599A9332238C0D4007DC99C /* FeatureDetailsViewController.swift */; };
 		3599A9362238E263007DC99C /* FeatureDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3599A9352238E263007DC99C /* FeatureDetailsViewModel.swift */; };
 		3599A939223B45F3007DC99C /* HealthRecordModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3599A938223B45F3007DC99C /* HealthRecordModels.swift */; };
+		3599A93C223EA07B007DC99C /* RecordDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3599A93B223EA07A007DC99C /* RecordDetailsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		3599A9332238C0D4007DC99C /* FeatureDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureDetailsViewController.swift; sourceTree = "<group>"; };
 		3599A9352238E263007DC99C /* FeatureDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureDetailsViewModel.swift; sourceTree = "<group>"; };
 		3599A938223B45F3007DC99C /* HealthRecordModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthRecordModels.swift; sourceTree = "<group>"; };
+		3599A93B223EA07A007DC99C /* RecordDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 			children = (
 				3599A9332238C0D4007DC99C /* FeatureDetailsViewController.swift */,
 				3599A9352238E263007DC99C /* FeatureDetailsViewModel.swift */,
+				3599A93B223EA07A007DC99C /* RecordDetailsTableViewCell.swift */,
 			);
 			path = FeatureDetails;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				3507C2992234C29F001E4C68 /* HealthStoreManager.swift in Sources */,
 				3599A9362238E263007DC99C /* FeatureDetailsViewModel.swift in Sources */,
 				3560AA0321B4C7D000D37F2C /* AppDelegate.swift in Sources */,
+				3599A93C223EA07B007DC99C /* RecordDetailsTableViewCell.swift in Sources */,
 				3507C2A72235B7D2001E4C68 /* HealthRecordModel.swift in Sources */,
 				3507C2A02234D31A001E4C68 /* WelcomeModel.swift in Sources */,
 				3599A939223B45F3007DC99C /* HealthRecordModels.swift in Sources */,

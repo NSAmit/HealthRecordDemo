@@ -149,13 +149,26 @@ struct VitalSign:Codable {
 class HealthRecordObject {
     let clinicalRecord:HKClinicalRecord
     let formattedData:Any
+    let numberOfLabels:Int
+    private let currentMirror:Mirror
     
     init(inFormattedData:Any, inClinicalRecord:HKClinicalRecord) {
         self.formattedData = inFormattedData
         self.clinicalRecord = inClinicalRecord
+        self.currentMirror = Mirror(reflecting: inFormattedData)
+        self.numberOfLabels = self.currentMirror.children.count
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func getLabelValueAtIndex(inIndex: Int) -> (label:String?, value:Any) {
+        for (index,child) in self.currentMirror.children.enumerated() {
+            if index == inIndex {
+                return (child.label, child.value)
+            }
+        }
+        return (nil, "")
     }
 }
