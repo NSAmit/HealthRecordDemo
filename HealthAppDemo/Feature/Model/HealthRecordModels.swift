@@ -11,11 +11,24 @@ import HealthKit
 
 // MARK: Medication
 
+<<<<<<< Updated upstream
 struct Prescriber:Codable {
     let display: String
     let reference: String
 }
 
+=======
+struct Person:Codable {
+    let display: String?
+    let reference: String
+}
+
+struct CodeableConcept:Codable {
+    let text:String
+    let coding:[[String:String]]
+}
+
+>>>>>>> Stashed changes
 struct DosageInstruction: Codable {
     let text:String?
     let timing:[String:[String:String?]?]?
@@ -26,9 +39,9 @@ struct Medication:Codable {
     let status: String
     let note: String
     let id: String
-    let medicationCodeableConcept: MedicationCodeableConcept
-    let patient:Patient
-    let prescriber:Prescriber
+    let medicationCodeableConcept: CodeableConcept
+    let patient:Person
+    let prescriber:Person
     let resourceType:String
     let dosageInstruction:[DosageInstruction]
 }
@@ -53,28 +66,23 @@ struct Reaction:Codable {
 
 struct Allergy: Codable {
     let id: String
+    let resourceType:String
     let onset: String?
-    let patient: Patient
+    let patient: Person
     let reaction: [Reaction]
     let recordedDate: String
-    let resourceType:String
-    let substance: MedicationCodeableConcept
+    let substance: CodeableConcept
 }
 
 // MARK: Condition
 
-struct Asserter:Codable {
-    let display: String
-    let reference: String
-}
-
 struct Condition:Codable {
     let id: String
     let resourceType:String
-    let asserter:Asserter
+    let asserter:Person
     let category:[String: [[String: String]]]
     let clinicalStatus: String
-    let code: MedicationCodeableConcept
+    let code: CodeableConcept
     let dateRecorded: String
     let verificationStatus: String
     let notes: String
@@ -86,7 +94,7 @@ struct Condition:Codable {
 struct Immunization:Codable {
     let id: String
     let resourceType:String
-    let vaccineCode:MedicationCodeableConcept
+    let vaccineCode:CodeableConcept
     let encounter:[String: String]
     let requester:[String: String]
     let date: String
@@ -110,10 +118,10 @@ struct ValueQuantity:Codable {
 struct LabResult:Codable {
     let id: String
     let resourceType:String
-    let category:MedicationCodeableConcept
+    let category:CodeableConcept
     let issued:String
     let status:String
-    let code:MedicationCodeableConcept
+    let code:CodeableConcept
     let referenceRange:[ReferenceRange]
     let valueQuantity:ValueQuantity
 }
@@ -123,11 +131,11 @@ struct LabResult:Codable {
 struct Procedure:Codable {
     let id: String
     let resourceType:String
-    let code:MedicationCodeableConcept
+    let code:CodeableConcept
     let status:String
     let encounter:[String: String]
     let performedDateTime:String
-//    let performer:[[String: Any]]
+    let performer:Person
 }
 
 // MARK: VitalSign
@@ -135,8 +143,8 @@ struct Procedure:Codable {
 struct VitalSign:Codable {
     let id: String
     let resourceType:String
-    let category:MedicationCodeableConcept
-    let code:MedicationCodeableConcept
+    let category:CodeableConcept
+    let code:CodeableConcept
     let status:String
     let encounter:[String: String]
     let issued: String

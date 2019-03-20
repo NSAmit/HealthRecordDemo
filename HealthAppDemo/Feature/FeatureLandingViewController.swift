@@ -126,7 +126,7 @@ extension FeatureLandingViewController:UITableViewDelegate, UITableViewDataSourc
         if let cell = tableView.cellForRow(at: indexPath) as? HealthRecordTableViewCell, let type = cell.cellModel?.type {
             healthStoreManager.getRecordForType(type: type) { inHKClinicalRecords in
                 DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "showRecordDetails", sender: inHKClinicalRecords)
+                    self.performSegue(withIdentifier: "showRecordDetails", sender: (data:inHKClinicalRecords, title:cell.cellModel?.displayString.capitalized))
                 }
             }
         }
@@ -134,9 +134,10 @@ extension FeatureLandingViewController:UITableViewDelegate, UITableViewDataSourc
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identity = segue.identifier, identity == "showRecordDetails" {
-            guard let params = sender as? [HKClinicalRecord] else { return }
+            guard let params = sender as? ([HKClinicalRecord],String) else { return }
             if let targetVC = segue.destination as? FeatureDetailsViewController {
-                targetVC.recordDetails = params
+                targetVC.recordDetails = params.0
+                targetVC.title = params.1
             }
         }
     }

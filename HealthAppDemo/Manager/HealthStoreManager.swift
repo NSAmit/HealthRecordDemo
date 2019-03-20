@@ -111,17 +111,15 @@ class HealthStoreManager:HealthStoreManagerProtocol {
         }
     }
     
-    
-    
-    func getRecordUsingPredicateForType(type: HKClinicalTypeIdentifier, recordReadCompletionHandler:@escaping ([HKClinicalRecord]?) -> Void) {
+    func getRecordUsingPredicateForAllergyType(recordReadCompletionHandler:@escaping ([HKClinicalRecord]?) -> Void) {
         
-        guard let healthRecordType = HKObjectType.clinicalType(forIdentifier: .allergyRecord) else {
-            fatalError("*** Unable to create the record type ***")
+        guard let healthRecordAllergyType = HKObjectType.clinicalType(forIdentifier: .medicationRecord) else {
+            fatalError("*** Unable to create the Allergy type ***")
         }
         
-        let healthRecordPredicate = HKQuery.predicateForClinicalRecords(withFHIRResourceType: .allergyIntolerance)
+        let healthRecordPredicate = HKQuery.predicateForClinicalRecords(withFHIRResourceType: .medicationOrder)
         
-        let sampleQuery = HKSampleQuery(sampleType: healthRecordType, predicate: healthRecordPredicate, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { (query, samples, error) in
+        let sampleQuery = HKSampleQuery(sampleType: healthRecordAllergyType, predicate: healthRecordPredicate, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { (query, samples, error) in
             guard let actualSamples = samples else {
                 // Handle the error here.
                 print("*** An error occurred: \(error?.localizedDescription ?? "nil") ***")
