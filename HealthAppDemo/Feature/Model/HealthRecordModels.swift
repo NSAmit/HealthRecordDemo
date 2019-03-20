@@ -11,19 +11,9 @@ import HealthKit
 
 // MARK: Medication
 
-struct Patient:Codable {
-    let display: String
-    let reference: String
-}
-
 struct Prescriber:Codable {
     let display: String
     let reference: String
-}
-
-struct MedicationCodeableConcept:Codable {
-    let text:String
-    let coding:[[String:String]]
 }
 
 struct DosageInstruction: Codable {
@@ -44,6 +34,16 @@ struct Medication:Codable {
 }
 
 // MARK: Allergy
+
+struct Patient:Codable {
+    let display: String
+    let reference: String
+}
+
+struct MedicationCodeableConcept:Codable {
+    let text:String
+    let coding:[[String:String]]
+}
 
 struct Reaction:Codable {
     let onset:String?
