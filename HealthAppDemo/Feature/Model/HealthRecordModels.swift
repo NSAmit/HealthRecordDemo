@@ -9,15 +9,7 @@
 import Foundation
 import HealthKit
 
-// MARK: Medication
 
-<<<<<<< Updated upstream
-struct Prescriber:Codable {
-    let display: String
-    let reference: String
-}
-
-=======
 struct Person:Codable {
     let display: String?
     let reference: String
@@ -28,7 +20,7 @@ struct CodeableConcept:Codable {
     let coding:[[String:String]]
 }
 
->>>>>>> Stashed changes
+// MARK: Medication
 struct DosageInstruction: Codable {
     let text:String?
     let timing:[String:[String:String?]?]?
@@ -47,17 +39,6 @@ struct Medication:Codable {
 }
 
 // MARK: Allergy
-
-struct Patient:Codable {
-    let display: String
-    let reference: String
-}
-
-struct MedicationCodeableConcept:Codable {
-    let text:String
-    let coding:[[String:String]]
-}
-
 struct Reaction:Codable {
     let onset:String?
     let manifestation:[[String: String]]
